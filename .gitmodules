@@ -1,0 +1,3 @@
+[submodule "marketplace/static/bootstrap"]
+	path = marketplace/static/bootstrap
+	url = https://github.com/twbs/bootstrap.git
