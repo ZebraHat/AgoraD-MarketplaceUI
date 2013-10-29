@@ -4,4 +4,7 @@ Another django project which will have closed signups. An organization that wish
 
 Current State
 -------------
-The repository is strictly a bare django install
+The repository has
+ * base templates adopted from https://github.com/IronSummitMedia/startbootstrap/tree/master/templates/sb-admin
+ * landing page adopted from https://github.com/IronSummitMedia/startbootstrap/blob/master/templates/stylish-portfolio.html
+ * bootstrap submodule https://github.com/twbs/bootstrap
