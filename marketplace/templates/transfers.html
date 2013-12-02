@@ -34,10 +34,12 @@
               <li><a href="index.html"><i class="icon-home"></i> Dashboard</a></li>
               <li class="active"><i class="icon-dashboard"></i> Transfer Log</li>
             </ol>
+            {% if message %}
             <div class="alert alert-info alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               Notice message
             </div>
+            {% endif %}
           </div>
         </div><!-- /.row -->
 
@@ -57,69 +59,87 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr class="success">
-                    <td>02/12/13</td>
-                    <td>Other Company Name</td>
-                    <td>Your Company Name</td>
-                    <td>93GB</td>
-                    <td>Hand-drawn images of users playing pictionary, keyed on topic</td>
-                    <td>Images</td>
-                    <td><a href="#">Download data</a></td>
-                  </tr>
-                  <tr class="warning">
-                    <td>02/12/13</td>
-                    <td>Your Company Name</td>
-                    <td>Company Name</td>
-                    <td>125MB</td>
-                    <td>Visitor browser data</td>
-                    <td>Analytics</td>
-                    <td><a href="#">View Receipt</a></td>
-                  </tr>
-                  <tr class="warning">
-                    <td>02/12/13</td>
-                    <td>Your Company Name</td>
-                    <td>Company Name</td>
-                    <td>2.1TB</td>
-                    <td>Click-through rates on dog ads</td>
-                    <td>CTR</td>
-                    <td><a href="#">View Receipt</a></td>
-                  </tr>
-                  <tr class="warning">
-                    <td>02/12/13</td>
-                    <td>Your Company Name</td>
-                    <td>Linked user interests</td>
-                    <td>53.1GB</td>
-                    <td>User interests keyed off common interests with other users</td>
-                    <td>Interests</td>
-                    <td><a href="#">View Receipt</a></td>
-                  </tr>
-                  <tr class="success">
-                    <td>02/12/13</td>
-                    <td>Other Company Name</td>
-                    <td>Your Company Name</td>
-                    <td>16MB</td>
-                    <td>Click-through rates on tablet ads of varying colors</td>
-                    <td>CTR</td>
-                    <td><a href="#">Download Data</a></td>
-                  </tr>
-                  <tr class="warning">
-                    <td>02/12/13</td>
-                    <td>Your Company Name</td>
-                    <td>Company Name</td>
-                    <td>12MB</td>
-                    <td>Geolocations of users that have opted in to cat facts</td>
-                    <td>Interests</td>
-                    <td><a href="#">View Receipt</a></td>
-                  </tr>
-                  <tr class="warning">
-                    <td>02/12/13</td>
-                    <td>Your Company Name</td>
-                    <td>Company Name</td>
-                    <td>16MB</td>
-                    <td>Click-through rates on tablet ads of varying colors</td>
-                    <td>CTR</td>
-                    <td><a href="#">View Receipt</a></td>
-                  </tr>
+                  {% if listings %}
+                    {% for item in transfer_list %}
+                      {% if item in bought_transfers %}
+                        <tr class="warning">
+                      {% else %}
+                        <tr class="success">
+                      {% endif %}
+                        <td>{{ item.transaction_queued }}</td>
+                        <td>{{ item.buyer.name }}</td>
+                        <td>{{ item.seller.name }}</td>
+                        <td>{{ item.data.data_size }}</td>
+                        <td>{{ item.data.title }}</td>
+                        <td>{{ item.data.category }}</td>
+                      </tr>
+                    {% endfor %}
+                  {% else %}
+                    <!-- Dummy data for now -->
+                    <tr class="success">
+                      <td>02/12/13</td>
+                      <td>Other Company Name</td>
+                      <td>Your Company Name</td>
+                      <td>93GB</td>
+                      <td>Hand-drawn images of users playing pictionary, keyed on topic</td>
+                      <td>Images</td>
+                      <td><a href="#">Download data</a></td>
+                    </tr>
+                    <tr class="warning">
+                      <td>02/12/13</td>
+                      <td>Your Company Name</td>
+                      <td>Company Name</td>
+                      <td>125MB</td>
+                      <td>Visitor browser data</td>
+                      <td>Analytics</td>
+                      <td><a href="#">View Receipt</a></td>
+                    </tr>
+                    <tr class="warning">
+                      <td>02/12/13</td>
+                      <td>Your Company Name</td>
+                      <td>Company Name</td>
+                      <td>2.1TB</td>
+                      <td>Click-through rates on dog ads</td>
+                      <td>CTR</td>
+                      <td><a href="#">View Receipt</a></td>
+                    </tr>
+                    <tr class="warning">
+                      <td>02/12/13</td>
+                      <td>Your Company Name</td>
+                      <td>Linked user interests</td>
+                      <td>53.1GB</td>
+                      <td>User interests keyed off common interests with other users</td>
+                      <td>Interests</td>
+                      <td><a href="#">View Receipt</a></td>
+                    </tr>
+                    <tr class="success">
+                      <td>02/12/13</td>
+                      <td>Other Company Name</td>
+                      <td>Your Company Name</td>
+                      <td>16MB</td>
+                      <td>Click-through rates on tablet ads of varying colors</td>
+                      <td>CTR</td>
+                      <td><a href="#">Download Data</a></td>
+                    </tr>
+                    <tr class="warning">
+                      <td>02/12/13</td>
+                      <td>Your Company Name</td>
+                      <td>Company Name</td>
+                      <td>12MB</td>
+                      <td>Geolocations of users that have opted in to cat facts</td>
+                      <td>Interests</td>
+                      <td><a href="#">View Receipt</a></td>
+                    </tr>
+                    <tr class="warning">
+                      <td>02/12/13</td>
+                      <td>Your Company Name</td>
+                      <td>Company Name</td>
+                      <td>16MB</td>
+                      <td>Click-through rates on tablet ads of varying colors</td>
+                      <td>CTR</td>
+                      <td><a href="#">View Receipt</a></td>
+                    </tr>
+                  {% endif %}
                 </tbody>
               </table>
             </div>

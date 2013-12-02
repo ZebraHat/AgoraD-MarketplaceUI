@@ -40,38 +40,54 @@ def home(request):
     bought_transfers = Transfer.objects.filter(buyer=current_user)
     sold_transfers = Transfer.objects.filter(seller=current_user)
     all_transfers = sorted(
-    	chain(bought_transfers, sold_transfers),
-    	key=lambda instance: instance.transaction_queued
+        chain(bought_transfers, sold_transfers),
+        key=lambda instance: instance.transaction_queued
     )
 
     template = loader.get_template('home.html')
     context = RequestContext(request, {
-    	'list_count': len(Sellable.objects.all()), # probably hilariously optimizable
-    	'sell_data': '0GB', #todo calculate this
-    	'transfer_count': len(all_transfers)
+        'list_count': len(Sellable.objects.all()), # probably hilariously optimizable
+        'sell_data': '0GB', #todo calculate this
+        'transfer_count': len(all_transfers)
     })
 
     return HttpResponse(template.render(context))
 
 @login_required()
 def listings(request):
-	""" data listings """
+    """ data listings """
 
-	template = loader.get_template('listings.html')
-	context = RequestContext(request, {
-		'listings': Sellable.objects.all()
-	})
+    template = loader.get_template('listings.html')
+    context = RequestContext(request, {
+        'listings': Sellable.objects.all()
+    })
 
-	return HttpResponse(template.render(context))
+    return HttpResponse(template.render(context))
 
 @login_required()
 def sell(request):
-	""" list data for sale """
+    """ list data for sale """
 
-	return render(request, 'sell.html')
+    return render(request, 'sell.html')
 
 @login_required()
 def transfers(request):
-	""" data transfer log """
+    """ data transfer log """
 
-	return render(request, 'transfers.html')
+    current_user = 0 #todo
+
+    bought_transfers = Transfer.objects.filter(buyer=current_user)
+    sold_transfers = Transfer.objects.filter(seller=current_user)
+    all_transfers = sorted(
+        chain(bought_transfers, sold_transfers),
+        key=lambda instance: instance.transaction_queued
+    )
+
+    template = loader.get_template('transfers.html')
+    context = RequestContext(request, {
+        'transfer_list': all_transfers,
+        'bought_transfers': bought_transfers,
+        'sold_transfers': sold_transfers
+    })
+
+    return HttpResponse(template.render(context))
