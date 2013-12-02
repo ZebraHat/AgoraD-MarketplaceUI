@@ -19,6 +19,7 @@ from django.forms.models import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import RequestContext, loader
+from itertools import chain
 
 
 #Interface Imports
@@ -34,13 +35,23 @@ def index(request):
 def home(request):
     """ dashboard interface """
 
-    # Get all the info that'll be displayed on the dashboard here
-    # all Sellables with Seller=current user
-    # all Transfers with Seller=current user or Buyer=current user
+    current_user = 0 # todo should be user comparable with foreign key references
 
-    # If we are a buyer AND there are no transfers above found, redirect to /listings
+    bought_transfers = Transfer.objects.filter(buyer=current_user)
+    sold_transfers = Transfer.objects.filter(seller=current_user)
+    all_transfers = sorted(
+    	chain(bought_transfers, sold_transfers),
+    	key=lambda instance: instance.transaction_queued
+    )
 
-    return render(request, 'home.html')
+    template = loader.get_template('home.html')
+    context = RequestContext(request, {
+    	'list_count': len(Sellable.objects.all()), # probably hilariously optimizable
+    	'sell_data': '0GB', #todo calculate this
+    	'transfer_count': len(all_transfers)
+    })
+
+    return HttpResponse(template.render(context))
 
 @login_required()
 def listings(request):
@@ -48,7 +59,6 @@ def listings(request):
 
 	template = loader.get_template('listings.html')
 	context = RequestContext(request, {
-		'test': [1, 2, 3, 4, 5, 6],
 		'listings': Sellable.objects.all()
 	})
 
