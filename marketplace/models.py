@@ -79,5 +79,9 @@ class Transfer(models.Model):
 	transaction_queued = models.DateField("transfer initiated")
 	transaction_completed = models.DateField("transfer complete")
 
+	def save(self, *args, **kwargs):
+		# hit highway/dock to let them know a transfer is ready to be made
+		super(Transfer, self).save(*args, **kwargs)
+
 	def __unicode__(self):
 		return "transfer from " + self.seller + " to " + self.buyer
