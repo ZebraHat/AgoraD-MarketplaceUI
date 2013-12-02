@@ -45,4 +45,4 @@ def home(request):
 def listings(request):
 	""" data listings """
 
-	return render(request, 'tables.html')
+	return render(request, 'listings.html')
