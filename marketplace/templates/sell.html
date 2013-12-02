@@ -1,0 +1,132 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>List data for sale</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "bootstrap/dist/css/bootstrap.min.css" %}" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="{% static "css/sb-admin.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}">
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+  </head>
+
+  <body>
+
+    <div id="wrapper">
+
+      {% include '_sidebar.html' %}
+
+      <div id="page-wrapper">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>List data for sale</h1>
+            <ol class="breadcrumb">
+              <li><a href="index.html"><i class="icon-home"></i> Dashboard</a></li>
+              <li class="active"><i class="icon-upload"></i> Sell Data</li>
+            </ol>
+            <div class="alert alert-info alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              Your listing will be available only to members of this marketplace. <a href="#">Learn more</a>
+            </div>
+          </div>
+        </div><!-- /.row -->
+
+        <form role="form">
+
+          <div class="row">
+            <div class="col-lg-8">
+
+                <div class="form-group">
+                  <label>Listing title</label>
+                  <input class="form-control" placeholder="Listing title">
+                </div>
+
+                <div class="form-group">
+                  <label>Available on behalf of</label>
+                  <p class="form-control-static">Your Company Name</p>
+                </div>
+
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" rows="8"></textarea>
+                  <p class="help-block">Please be as exact and informative as possible about what this data consists of and how it was obtained.</p>
+                </div>
+
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" value="">
+                    I accept the <a href="#">Terms and Conditions</a> set forth by this marketplace.
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn-large btn-primary">List Data</button> 
+
+            </div>
+            <div class="col-lg-4">
+
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Make this data available for purchase</h3>
+                </div>
+                <div class="form-group panel-body">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                      Immediately
+                    </label>
+                  </div>
+                 <div class="radio">
+                    <label>
+                      <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                      On a specific day:
+                      <div class="input-group">
+                        <input type="text" class="form-control">
+                        <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Data format explanation document</h3>
+                </div>
+                <div class="form-group panel-body">
+                  <p>
+                    It is recommended that you upload a PDF detailing the format of your data for potential buyers.
+                  </p>
+                  <input type="file">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <p>
+                  <a href="#">Learn more about selling data on this marketplace</a>
+                </p>
+              </div>
+
+            </div>
+
+          </form>
+        </div><!-- /.row -->
+
+      </div><!-- /#page-wrapper -->
+
+    </div><!-- /#wrapper -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>

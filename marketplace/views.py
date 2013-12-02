@@ -48,6 +48,12 @@ def listings(request):
 	return render(request, 'listings.html')
 
 @login_required()
+def sell(request):
+	""" list data for sale """
+
+	return render(request, 'sell.html')
+
+@login_required()
 def transfers(request):
 	""" data transfer log """
 

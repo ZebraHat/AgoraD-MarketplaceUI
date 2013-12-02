@@ -19,7 +19,7 @@ urlpatterns = patterns('',
  
     url(r'^home/$', 'marketplace.views.home', name='home'),
     url(r'^listings/$', 'marketplace.views.listings', name='listings'),
-
+    url(r'^sell/$', 'marketplace.views.sell', name='sell'),
     url(r'^transfers/$', 'marketplace.views.transfers', name='transfers'),
     
 )
