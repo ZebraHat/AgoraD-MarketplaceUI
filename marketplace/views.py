@@ -35,10 +35,10 @@ def index(request):
 def home(request):
     """ dashboard interface """
 
-    current_user = 0 # todo should be user comparable with foreign key references
+    current_user = request.user
 
-    bought_transfers = Transfer.objects.filter(buyer=current_user)
-    sold_transfers = Transfer.objects.filter(seller=current_user)
+    bought_transfers = Transfer.objects.all()#.filter(buyer=current_user) # temp
+    sold_transfers = Transfer.objects.all()#.filter(seller=current_user) # temp
     all_transfers = sorted(
         chain(bought_transfers, sold_transfers),
         key=lambda instance: instance.transaction_queued
@@ -74,10 +74,10 @@ def sell(request):
 def transfers(request):
     """ data transfer log """
 
-    current_user = 0 #todo
+    current_user = request.user
 
-    bought_transfers = Transfer.objects.filter(buyer=current_user)
-    sold_transfers = Transfer.objects.filter(seller=current_user)
+    bought_transfers = Transfer.objects.all()#.filter(buyer=current_user) # temp
+    sold_transfers = Transfer.objects.all()#.filter(seller=current_user) # temp
     all_transfers = sorted(
         chain(bought_transfers, sold_transfers),
         key=lambda instance: instance.transaction_queued

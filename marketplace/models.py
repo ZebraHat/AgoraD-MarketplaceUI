@@ -81,6 +81,14 @@ class Transfer(models.Model):
 
 	def save(self, *args, **kwargs):
 		# hit highway/dock to let them know a transfer is ready to be made
+
+	    #:param token: API token for this loading dock
+	    #:param table_names: A list of table names to transfer
+	    #:param destination: The IP or host to transfer to
+	    #:param session_id: ID of session from the MarketPlace
+	    #:param database_name: Name of database to transfer
+		#thing.com/highway/transfer/start/
+
 		super(Transfer, self).save(*args, **kwargs)
 
 	def __unicode__(self):
