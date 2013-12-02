@@ -32,4 +32,11 @@ def index(request):
 @login_required()
 def home(request):
     """ dashboard interface """
+
+    # Get all the info that'll be displayed on the dashboard here
+    # all Sellables with Seller=current user
+    # all Transfers with Seller=current user or Buyer=current user
+
+    # If we are a buyer AND there are no transfers above found, redirect to /listings
+
     return render(request, 'home.html')
