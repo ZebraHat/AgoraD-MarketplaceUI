@@ -22,6 +22,9 @@ class Company(models.Model):
 	#logo = models.ImageField("company logo", blank=True)
 	link = models.URLField("website link", blank=True)
 
+	def __unicode__(self):
+		return self.name
+
 class User(models.Model):
 	name     = models.CharField("real name", max_length=64, primary_key=True)
 	email    = models.CharField("email address", max_length=128) # used as username to log in
@@ -29,6 +32,9 @@ class User(models.Model):
 
 	#class Meta:
 	#	abstract = True
+
+	def __unicode__(self):
+		return self.name
 
 class Buyer(User):
 	user_id = models.ForeignKey(User, related_name='+')
@@ -63,9 +69,15 @@ class Sellable(models.Model):
 		# todo
 		super(Sellable, self).save(*args, **kwargs)
 
+	def __unicode__(self):
+		return self.title
+
 class Transfer(models.Model):
 	seller = models.ForeignKey(Seller)
 	buyer  = models.ForeignKey(User, related_name='+') # allow buyers and sellers to buy, but only sellers to sell
 	data   = models.ForeignKey(Sellable)
 	transaction_queued = models.DateField("transfer initiated")
 	transaction_completed = models.DateField("transfer complete")
+
+	def __unicode__(self):
+		return "transfer from " + self.seller + " to " + self.buyer
