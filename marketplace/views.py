@@ -40,3 +40,9 @@ def home(request):
     # If we are a buyer AND there are no transfers above found, redirect to /listings
 
     return render(request, 'home.html')
+
+@login_required()
+def listings(request):
+	""" data listings """
+
+	return render(request, 'tables.html')

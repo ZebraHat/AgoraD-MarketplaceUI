@@ -18,5 +18,6 @@ urlpatterns = patterns('',
     url(r'^$', 'marketplace.views.index', name='index'),
  
     url(r'^home/$', 'marketplace.views.home', name='home'),
+    url(r'^listings/$', 'marketplace.views.listings', name='listings'),
     
 )
