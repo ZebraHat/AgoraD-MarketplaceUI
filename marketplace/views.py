@@ -46,3 +46,9 @@ def listings(request):
 	""" data listings """
 
 	return render(request, 'listings.html')
+
+@login_required()
+def transfers(request):
+	""" data transfer log """
+
+	return render(request, 'transfers.html')
