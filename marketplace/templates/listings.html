@@ -34,10 +34,12 @@
               <li><a href="index.html"><i class="icon-home"></i> Dashboard</a></li>
               <li class="active"><i class="icon-th-list"></i> Data Listings</li>
             </ol>
+            {% if message %}
             <div class="alert alert-info alert-dismissable">
               <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               Notice message
             </div>
+            {% endif %}
           </div>
         </div><!-- /.row -->
 
@@ -55,41 +57,57 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td></td>
-                    <td>Company Name</td>
-                    <td>125MB</td>
-                    <td>Visitor browser data</td>
-                    <td>Analytics</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Company Name</td>
-                    <td>2.1TB</td>
-                    <td>Click-through rates on dog ads</td>
-                    <td>CTR</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Linked user interests</td>
-                    <td>53.1GB</td>
-                    <td>User interests keyed off common interests with other users</td>
-                    <td>Interests</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Company Name</td>
-                    <td>12MB</td>
-                    <td>Geolocations of users that have opted in to cat facts</td>
-                    <td>Interests</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Company Name</td>
-                    <td>16MB</td>
-                    <td>Click-through rates on tablet ads of varying colors</td>
-                    <td>CTR</td>
-                  </tr>
+                  {% if listings %}
+                    {% for item in listings %}
+                      <tr>
+                        <td></td>
+                        <td>{{ item.seller }}</td>
+                        <td>{{ item.data_size }}</td>
+                        <td>
+                          <h3>{{ item.title }}</h3>
+                          {{ item.description }}
+                        </td>
+                        <td>{{ item.category }}</td>
+                      </tr>
+                    {% endfor %}
+                  {% else %}
+                    <!-- Dummy data for now -->
+                    <tr>
+                      <td></td>
+                      <td>Company Name</td>
+                      <td>125MB</td>
+                      <td>Visitor browser data</td>
+                      <td>Analytics</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Company Name</td>
+                      <td>2.1TB</td>
+                      <td>Click-through rates on dog ads</td>
+                      <td>CTR</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Linked user interests</td>
+                      <td>53.1GB</td>
+                      <td>User interests keyed off common interests with other users</td>
+                      <td>Interests</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Company Name</td>
+                      <td>12MB</td>
+                      <td>Geolocations of users that have opted in to cat facts</td>
+                      <td>Interests</td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>Company Name</td>
+                      <td>16MB</td>
+                      <td>Click-through rates on tablet ads of varying colors</td>
+                      <td>CTR</td>
+                    </tr>
+                  {% endif %}
                 </tbody>
               </table>
             </div>

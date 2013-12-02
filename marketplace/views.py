@@ -18,6 +18,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.forms.models import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.template import RequestContext, loader
 
 
 #Interface Imports
@@ -45,7 +46,13 @@ def home(request):
 def listings(request):
 	""" data listings """
 
-	return render(request, 'listings.html')
+	template = loader.get_template('listings.html')
+	context = RequestContext(request, {
+		'test': [1, 2, 3, 4, 5, 6],
+		'listings': Sellable.objects.all()
+	})
+
+	return HttpResponse(template.render(context))
 
 @login_required()
 def sell(request):
