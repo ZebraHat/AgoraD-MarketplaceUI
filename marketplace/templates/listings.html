@@ -59,16 +59,22 @@
                 <tbody>
                   {% if listings %}
                     {% for item in listings %}
+                      <a href="#">
                       <tr>
                         <td></td>
                         <td>{{ item.seller }}</td>
                         <td>{{ item.data_size }}</td>
                         <td>
-                          <h3>{{ item.title }}</h3>
+                          <div><strong>
+                            <a href="/listing/{{ item.id }}">
+                              {{ item.title }}
+                            </a>
+                          </strong></div>
                           {{ item.description }}
                         </td>
                         <td>{{ item.category }}</td>
                       </tr>
+                      </a>
                     {% endfor %}
                   {% else %}
                     <!-- Dummy data for now -->
@@ -76,35 +82,67 @@
                       <td></td>
                       <td>Company Name</td>
                       <td>125MB</td>
-                      <td>Visitor browser data</td>
+                      <td>
+                        <div><strong>
+                          <a href="/listing/1">
+                            This is a title
+                          </a>
+                        </strong></div>
+                        Visitor browser data
+                      </td>
                       <td>Analytics</td>
                     </tr>
                     <tr>
                       <td></td>
                       <td>Company Name</td>
                       <td>2.1TB</td>
-                      <td>Click-through rates on dog ads</td>
+                      <td>
+                        <div><strong>
+                          <a href="/listing/1">
+                            This is a title
+                          </a>
+                        </strong></div>
+                        Click-through rates on dog ads
+                      </td>
                       <td>CTR</td>
                     </tr>
                     <tr>
                       <td></td>
-                      <td>Linked user interests</td>
+                      <td>Company Name</td>
                       <td>53.1GB</td>
-                      <td>User interests keyed off common interests with other users</td>
+                      <td>
+                        <div><strong>
+                          <a href="/listing/1">
+                            Linked user interests
+                          </a>
+                        </strong></div>
+                        User interests keyed off common interests with other users</td>
                       <td>Interests</td>
                     </tr>
                     <tr>
                       <td></td>
                       <td>Company Name</td>
                       <td>12MB</td>
-                      <td>Geolocations of users that have opted in to cat facts</td>
+                      <td>
+                        <div><strong>
+                          <a href="/listing/1">
+                            This is a title
+                          </a>
+                        </strong></div>
+                        Geolocations of users that have opted in to cat facts</td>
                       <td>Interests</td>
                     </tr>
                     <tr>
                       <td></td>
                       <td>Company Name</td>
                       <td>16MB</td>
-                      <td>Click-through rates on tablet ads of varying colors</td>
+                      <td>
+                        <div><strong>
+                          <a href="/listing/1">
+                            This is a title
+                          </a>
+                        </strong></div>
+                        Click-through rates on tablet ads of varying colors</td>
                       <td>CTR</td>
                     </tr>
                   {% endif %}
