@@ -69,6 +69,12 @@ def listings(request):
 def sell(request):
     """ list data for sale """
 
+    # If we catch a POST request, process it
+    if request.method == 'POST':
+    	#TODO validation
+    	sellable = Sellable.new(request.POST)
+    	sellable.save
+
     return render(request, 'sell.html')
 
 @login_required()
