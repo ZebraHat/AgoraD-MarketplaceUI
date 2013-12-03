@@ -33,7 +33,7 @@ def index(request):
     #return render(request, 'index.html')
     
 
-@login_required()
+#@login_required()
 def home(request):
     """ dashboard interface """
 
@@ -55,7 +55,7 @@ def home(request):
 
     return HttpResponse(template.render(context))
 
-@login_required()
+#@login_required()
 def listings(request):
     """ data listings """
 
@@ -66,7 +66,7 @@ def listings(request):
 
     return HttpResponse(template.render(context))
 
-@login_required()
+#@login_required()
 def sell(request):
     """ list data for sale """
 
@@ -78,7 +78,7 @@ def sell(request):
 
     return render(request, 'sell.html')
 
-@login_required()
+#@login_required()
 def transfers(request):
     """ data transfer log """
 
@@ -100,7 +100,7 @@ def transfers(request):
 
     return HttpResponse(template.render(context))
 
-@login_required()
+#@login_required()
 def detail(request, listing_id):
 	""" listing detail page """
 
