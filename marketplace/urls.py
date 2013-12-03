@@ -21,5 +21,7 @@ urlpatterns = patterns('',
     url(r'^listings/$', 'marketplace.views.listings', name='listings'),
     url(r'^sell/$', 'marketplace.views.sell', name='sell'),
     url(r'^transfers/$', 'marketplace.views.transfers', name='transfers'),
+
+    url(r'^listing/(\d+)$', 'marketplace.views.detail', name='detail'),
     
 )

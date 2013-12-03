@@ -20,6 +20,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import RequestContext, loader
 from itertools import chain
+from django.shortcuts import get_object_or_404
 
 
 #Interface Imports
@@ -91,3 +92,17 @@ def transfers(request):
     })
 
     return HttpResponse(template.render(context))
+
+@login_required()
+def detail(request, listing_id):
+	""" listing detail page """
+
+	listing = Sellable.objects.filter(id=listing_id)
+	#listing = get_object_or_404(Sellable, id=listing_id) # temp disabled
+
+	template = loader.get_template('detail.html')
+	context = RequestContext(request, {
+		'listing': listing
+	})
+
+	return HttpResponse(template.render(context))
