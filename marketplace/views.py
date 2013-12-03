@@ -29,7 +29,8 @@ from models import *
 
 def index(request):
     """ one-pager landing """
-    return render(request, 'index.html')
+    return home(request)
+    #return render(request, 'index.html')
     
 
 @login_required()
