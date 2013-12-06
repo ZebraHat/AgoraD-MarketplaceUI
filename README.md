@@ -3,10 +3,10 @@ AgoraD-MarketplaceUI
 Another django project which will have closed signups. An organization that wishes to create a data sharing marketplace (like us) will host the project on their servers and fascilitate the transfer of data. In order to join the exchange, you would contact the marketplace manager and be let in. You would then be able to browse the data sellers and contact information. Once an agreement is reached, the seller clicks a button to initiate transfer to another user, that user then accepts and the transfer starts. Marketplace tracks these deals.
 
 Instructions for setup:
-    1) Clone repository recursively to ensure all the submodules are pulled in ("$ git clone --recursive git@github.com:ZebraHat/AgoraD-MarketplaceUI.git")\n
-    2) Pull in necessary requirements ("$ sudo pip install -r requirements.txt"), or install in a virtualenv (recommended)\n
-    3) Sync and install the database (you'll need sqlite3 if you don't already have it) -- "$ python manage.py syncdb"\n
-    4) Test using "$ python manage.py runserver 0.0.0.0 " (Or leave off the ports if you're just testing locally)\n
+    1) Clone repository recursively to ensure all the submodules are pulled in ("$ git clone --recursive git@github.com:ZebraHat/AgoraD-MarketplaceUI.git")   return
+    2) Pull in necessary requirements ("$ sudo pip install -r requirements.txt"), or install in a virtualenv (recommended)   return
+    3) Sync and install the database (you'll need sqlite3 if you don't already have it) -- "$ python manage.py syncdb"   return
+    4) Test using "$ python manage.py runserver 0.0.0.0 " (Or leave off the ports if you're just testing locally)   return
     5) Leave server running using your favorite Django-interfaceable webservers (like uWSGI + NGINX)\n
 
 Instructions for new user setup\n
