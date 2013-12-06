@@ -1,6 +1,14 @@
 AgoraD-MarketplaceUI
 ====================
-Another django project which will have closed signups. An organization that wishes to create a data sharing marketplace (like us) will host the project on their servers and fascilitate the transfer of data. In order to join the exchange, you would contact the marketplace manager and be let in. You would then be able to browse the data sellers and contact information. Once an agreement is reached, the seller clicks a button to initiate transfer to another user, that user then accepts and the transfer starts. Marketplace tracks these deals.
+The AgoraD MarketplaceUI is an easy to install and configure django project to manage multiple AgoraD Loading Dock nodes. The Marketplaces are designed to have closed signups, but anyone may run a Marketplace.
+
+A typical use case is that two companies would like to buy or sell their data, but the only way to do so would be to have engineers spend days or weeks tranfering this database out of the seller's and into the buyer's (made especially difficult if the buyer and seller have different datastore types and environments).
+
+The AgoraD project looks to simplify this process by supporting several drivers for multiple datastores and datastore versions. Sharing your data (or even migrating internally) should be as easy as installing and configuring a Loading Dock, and registering it with a Marketplace.
+
+Once the Marketplace is up and running, it has a simple and intuitive web GUI that let's you browse other's data offerings and contact those sellers about a potential purchase agreement. Monetary transfer and contractual agreements are outside the scope and domain of the project, so all of those negotiations should still happen offline.
+
+--------------------------------
 
 Instructions for setup:
 
