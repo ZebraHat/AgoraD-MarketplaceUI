@@ -47,19 +47,21 @@
         <div class="row">
           <div class="col-lg-8">
             <h2>
-              {{ listing.title }}
+              Linked user interests{{ listing.title }}
               <div><small>
-                Data listed {{ listing.for_sale_date }}
-                by <a href="{{ listing.seller.website }}">{{ listing.seller.name }}</a>
+                Data listed December 2, 2013{{ listing.for_sale_date }}
+                by <a href="{{ listing.seller.website }}">Company Name{{ listing.seller.name }}</a>
               </small></div>
             </h2>
 
-            {% if listing.description %}
             <h3>Data Description</h3>
             <p class="well">
-              {{ listing.description }}
+              {{ listing.description }}User interests keyed off common interests with other users
             </p>
-            {% endif %}
+
+            <h3><small>
+              <i class="icon-download"></i> 53.1GB JSON
+            </small></h3>
 
           </div>
 
